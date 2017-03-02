@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>checkValidity方法使用</title>
+</head>
+<body>
+	<form onsubmit="return check();" id="testform" novalidate="true">
+		<label for="email">Email</label>
+		<input type="email" name="email" id="email" /><br />
+		<input type="submit" />
+	</form>
+	<script type="text/javascript">
+		function check(){
+			var email = document.forms[0].email;
+			if(email.value == ""){
+				alert("请输入Email地址");
+				return false;
+			}
+			else if(!email.checkValidity()){
+				alert("请输入正确的Email地址");
+				return false;
+			}
+			else{
+				alert("您输入的Email地址有效");
+			}
+		}
+	</script>
+</body>
+</html>

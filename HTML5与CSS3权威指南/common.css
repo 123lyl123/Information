@@ -1,0 +1,18 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+img,a{
+	border: 0;
+	outline: none;
+}
+body{
+	font-family: "Microsoft YaHei";
+}
+a{
+	text-decoration: none;
+}
+//追加声明
+article,aside,dialog,figure,footer,header,legend,nav,section,main{
+	display: block;
+}

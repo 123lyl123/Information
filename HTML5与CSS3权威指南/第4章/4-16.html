@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>output元素实例</title>
+</head>
+<body>
+	<form id="testform">
+		<input type="range" id="range1" min="0" max="100" step="5" value="10" onchange="value_change()" />
+		<output id="output1">10</output>
+	</form>
+	<script type="text/javascript">
+		function value_change(){
+			var tempvalue = document.getElementById("range1").valueAsNumber;  //获取滑块的瞬时值
+			document.getElementById("output1").value =tempvalue;
+		}
+	</script>
+</body>
+</html>

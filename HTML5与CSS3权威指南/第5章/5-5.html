@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>绘制复杂图形</title>
+	<meta name="keywords" content="" />
+	<meta name='description' content='' />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta content="telephone=no" name="format-detection" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta name="wap-font-scale" content="no">
+</head>
+<body onload="draw('canvas');">
+	<h1>canvas元素实例</h1>
+	<canvas id="canvas" width="400" height="300"></canvas>
+	<script type="text/javascript">
+		function draw(id){
+			var canvas = document.getElementById(id);
+			if(canvas == null){
+				return false;
+			}
+			var ctx = canvas.getContext('2d');
+			ctx.fillStyle = "#eeeeff";
+			ctx.fillRect(0, 0, 400, 300);
+			var n =0;
+			var dx =150;
+			var dy =150;
+			var s = 100;
+			ctx.beginPath();
+			ctx.fillStyle = 'rgb(100,255,100)';
+			ctx.strokeStyle = 'rgb(0,0,100)';
+			var x= Math.sin(0);
+			var y= Math.cos(0);
+			var dig = Math.PI / 15 * 11; 
+			for(var i=0;i< 30;i++){
+				var x = Math.sin(i * dig);
+				var y = Math.cos(i * dig);
+				ctx.lineTo(dx + x * s,dy + y * s);
+			}
+			ctx.closePath();
+			ctx.fill();
+			ctx.stroke();
+		}
+	</script>
+</body>
+</html>

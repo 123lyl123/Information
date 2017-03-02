@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>setLineDash方法的使用实例</title>
+	<meta name="keywords" content="" />
+	<meta name='description' content='' />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta content="telephone=no" name="format-detection" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta name="wap-font-scale" content="no">
+</head>
+<body onload="draw('canvas');">
+	<h1>canvas元素实例</h1>
+	<canvas id="canvas" width="400" height="300"></canvas>
+	<script type="text/javascript">
+		function draw(id){
+			var canvas = document.getElementById(id);
+			if(canvas == null){
+				return false;
+			}
+			var ctx = canvas.getContext('2d');
+			ctx.fillStyle = "#eeeeff";
+			ctx.beginPath();
+			ctx.lineWidth = 5;
+			// ctx.setLineDash([5]);
+			// ctx.setLineDash([5,10]);
+			// ctx.setLineDash([5,10,15,20]);
+			ctx.setLineDash([5,10,15]);
+			ctx.moveTo(20, 20);
+			ctx.lineTo(200, 20);
+			ctx.stroke();
+			ctx.closePath();
+			//confirm(ctx.getLineDash()); =>获取虚线数组
+		}
+	</script>
+</body>
+</html>
