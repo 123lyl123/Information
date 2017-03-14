@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Blob对象的type属性的使用实例</title>
+</head>
+<body>
+	<input type="file" id="file" accept="image/*" />
+	<input type="button" value="文件上传" onclick="FileUpLoad()" />
+	<script type="text/javascript">
+		function FileUpLoad(){
+			var file;
+			for(var i=0;i< document.getElementById('file').files.length;i++){
+				file = document.getElementById('file').files[i];
+				if(!/image\/\w+/.test(file.type)){
+					console.log(file.name + "不是图像文件！");
+					break;
+				}
+				else{
+					//进行上传上传
+				}
+			}
+		}
+	</script>
+</body>
+</html>

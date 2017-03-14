@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>在HTML5页面中播放视频</title>
+	<title>通用兄弟元素选择器的使用实例</title>
 	<meta name="keywords" content="" />
 	<meta name='description' content='' />
 	<meta name="apple-mobile-web-app-capable" content="yes" />
@@ -10,15 +10,23 @@
     <meta content="telephone=no" name="format-detection" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
     <meta name="wap-font-scale" content="no">
+	<link rel="stylesheet" type="text/css" href="../common.css" />	
+	<style type="text/css">
+		div ~ p{
+			background: #00ff00;
+		}
+	</style>
 </head>
 <body>
-	<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" width="576" height="432" codebase="swflash.cab#version=6,0,40,0">
-		<param name="allowFullScreen" value="true" />
-		<param name="allowscriptaccess" value="always" />
-		<param name="allowfullscreen" value="true" />
-		<embed type="application/x-shockwave-flash" width="576" height="432" src="test0.swf" allowscriptaccess="always" allowfullscreen="true">
-			
-		</embed>
-	</object>
+	<div>
+		<div>
+			<p>子元素1</p>
+			<p>子元素2</p>
+		</div>
+		<hr>
+		<p>兄弟元素1</p>
+		<p>兄弟元素2</p>
+		<hr>
+	</div>
 </body>
 </html>

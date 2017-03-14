@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>background-origin属性使用实例</title>
+	<style type="text/css">
+		div{
+			background-color: black;
+			background-image: url(../favicon.ico);
+			background-repeat: no-repeat;
+			border: 10px solid green;
+			padding: 30px;
+			color: white;
+			font-size: 2em;
+			font-weight: bold;
+		}
+		.div1{
+			-moz-background-origin: border;
+			-webkit-background-origin: border;
+		}
+		.div2{
+			-moz-background-origin: padding;
+			-webkit-background-origin: padding;
+		}
+		.div3{
+			-moz-background-origin: content;
+			-webkit-background-origin: content;
+		}
+	</style>
+</head>
+<body>
+	<div class="div1">实力文字1</div>
+	<div class="div2">实力文字2</div>
+	<div class="div3">实力文字3</div>
+</body>
+</html>

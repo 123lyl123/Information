@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html manifest="swapCache.manifest">
+<head>
+	<meta charset="UTF-8">
+	<title>swapCache方法实例</title>
+</head>
+<body onload="init()">
+	<h1>hello everyone</h1>
+	<script type="text/javascript">
+		function init(){
+			setInterval(function(){
+				window.applicationCache.update();
+			}, 5000);
+			applicationCache.addEventListener("updateready", function(){
+				if(confirm("确实更新吗")){
+					applicationCache.swapCache();
+					window.location.reload();
+				}
+			});
+		}
+	</script>
+</body>
+</html>

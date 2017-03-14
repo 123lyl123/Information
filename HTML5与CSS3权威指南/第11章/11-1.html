@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>跨域通信主页面</title>
+</head>
+<body>
+	<h1>跨域通信</h1>
+	<iframe src="http://192.168.1.105/第11章/11-2.html" width="400" onload="init()" target="_blank">
+		
+	</iframe>
+	<script type="text/javascript">
+		function init(){
+			var iframe = window.frames[0];
+			iframe.postMessage("你好", "http://192.168.1.105/第11章/11-2.html");
+			console.log(123);
+		}
+		window.addEventListener("message", function(event){
+			alert(123)
+			if(ev.origin != "http://192.168.1.105/第11章/11-2.html"){
+				return;
+			}
+			alert('子页面传输的数据:' + event.data);
+		}, false);
+	</script>
+</body>
+</html>

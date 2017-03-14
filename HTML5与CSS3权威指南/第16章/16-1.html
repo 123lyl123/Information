@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>拖放实例</title>
+</head>
+<body onload="init()">
+	<div id="dragme" draggable="true" style="width: 200px; border: 1px solid gray;">
+		请拖放
+	</div><br>
+	<div id="text" style="width: 200px;height: 200px; border: 1px solid gray; resize: both;">
+		
+	</div>
+	<script type="text/javascript">
+		function init(){
+			var source = document.getElementById('dragme');
+			var dest = document.getElementById('text');
+			var dragIcon = new Image();
+			dragIcon.src = '../favicon.ico';
+			source.addEventListener('dragstart', function(ev){
+				var dt = ev.dataTransfer;
+				dt.effectAllowed = 'all';
+				dt.dropEffect = 'copy';
+				dt.setDragImage(dragIcon, -10, -10);
+				dt.setData("text/plain", this.style.border);
+			}, false);
+			dest.addEventListener('dragend', function(ev){
+				ev.preventDefault();
+			}, false);
+			dest.addEventListener('dragover', function(ev){
+				var dt = ev.dataTransfer;
+				dt.dropEffect = 'move';
+				ev.preventDefault();
+			}, false);
+			dest.addEventListener('drop', function(ev){
+				var dt = ev.dataTransfer;
+				var text = dt.getData("text/plain");
+				dest.textContent += text;
+				ev.preventDefault();
+				ev.stopPropagation();
+			}, false);
+		}
+		document.ondragover = function(e){e.preventDefault();};
+		document.ondrop = function(e){e.preventDefault()};
+	</script>
+</body>
+</html>

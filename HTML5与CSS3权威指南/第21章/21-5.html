@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>使用@face-face属性显示客户端本地的字体实例</title>
+	<style type="text/css">
+		@font-face{
+			font-family: MyHelvetica;
+			font-weight: normal;
+			src: local('Helvetica Neue');
+		}
+		@font-face{
+			font-family: MyHelvetica;
+			font-weight: bold;
+			src: local('Helvetica Neue');
+		}
+		div{
+			font-family: MyHelvetica;
+			font-size: 40px;
+		}
+		div#div1{
+			font-weight: normal;
+		}
+		div#div2{
+			font-weight: bold;
+		}
+	</style>
+</head>
+<body>
+	<div id="div1">text1</div>
+	<div id="div2">text2</div>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>创建和下载二进制文件</title>
+</head>
+<body>
+	<textarea id="text" placeholder="请输入一些文字">
+		
+	</textarea><br>
+	<button id="btnDownLoad">创建和下载二进制文件</button>
+	<output id="result"></output>
+	<script type="text/javascript" src="../jquery-1.11.0.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$("#btnDownLoad").click(function(){
+				var text = $("#text").val();
+				var blob;
+				if(!window.Blob){
+					return false;
+				}
+				else{
+					blob = new Blob([text]);
+				}
+				if(window.URL){
+					$("#result").html('<a download href="' + window.URL.createObjectURL(blob) + '" target="_blank">文件下载</a>');
+				}
+			})
+		})
+	</script>
+</body>
+</html>
