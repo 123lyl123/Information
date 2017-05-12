@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>使用Transitions功能实现元素的移动与旋转动画</title>
+	<style>
+		img{
+			position: absolute;
+			top: 70px;
+			left: 0;
+
+			-webkit-transform: rotate(0deg);
+			-ms-transform: rotate(0deg);
+			-o-transform: rotate(0deg);
+			transform: rotate(0deg);
+			-webkit-transition: left .5s linear, -webkit-transform .5s linear;
+			-ms-transition: left .5s linear, -ms-transform .5s linear;
+			-o-transition: left .5s linear, -o-transform .5s linear;
+			transition: left .5s linear, transform .5s linear;
+		}
+		div:hover img{
+			left: 30px;
+			-webkit-transform: rotate(180deg);
+			-ms-transform: rotate(180deg);
+			-o-transform: rotate(180deg);
+			transform: rotate(180deg);
+		}
+	</style>
+</head>
+<body>
+	<div>
+		<img src="../img/timg.jpg" alt="*" title="" />
+	</div>
+</body>
+</html>

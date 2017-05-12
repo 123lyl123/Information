@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>3D旋转变形处理的方法示例</title>
+	<link rel="stylesheet" href="../pc-common.css" />
+	<style type="text/css">
+		div{
+			width: 300px;
+			height: 100px;
+			background-color: yellow;
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+	<div id="div">
+		示例文字
+	</div>
+	<form>
+		<input type="button" value="绕X轴旋转" onclick="rotateX()" />
+		<input type="button" value="绕Y轴旋转" onclick="rotateY()" />
+		<input type="button" value="绕Z轴旋转" onclick="rotateZ()" />
+	</form>
+	<script src="../jquery-1.11.0.js"></script>
+	<script type="text/javascript">
+		var n, rotXINT, rotYINT, rotZINT;
+		var div = document.getElementById("div");
+		var input = $("input[type='button']");
+		function disableInput(){
+			input.attr("disabled", true);
+		}
+		function enableInput(){
+			input.attr("disabled", false);
+		}
+		function rotateX(){
+			n = 0;
+			clearInterval(rotXINT);
+			rotXINT = setInterval(startXRotate, 10);
+			disableInput();
+		}
+		function startXRotate(){
+			
+			if(n ==360){
+				clearInterval(rotXINT);
+				n = 0;
+				enableInput();
+			}
+			n =n + 1;
+			div.style.transform = "rotateX(" + n + "deg)";
+		}
+		function rotateY(){
+			n = 0;
+			clearInterval(rotYINT);
+			rotYINT = setInterval(startYRotate, 10);
+			disableInput();
+		}
+		function startYRotate(){
+			
+			
+			if(n == 360){
+				clearInterval(rotYINT);
+				n = 0;
+				enableInput();
+			}
+			n =n + 1;
+			div.style.transform = "rotateY(" + n + "deg)";
+		}
+		function rotateZ(){
+			n = 0;
+			clearInterval(rotZINT);
+			rotZINT = setInterval(startZRotate, 10);
+			disableInput();
+		}
+		function startZRotate(){
+			
+			if(n ==360){
+				clearInterval(rotZINT);
+				n = 0;
+				enableInput();
+			}
+			n =n + 1;
+			div.style.transform = "rotateZ(" + n + "deg)";
+		}
+	</script>
+</body>
+</html>
