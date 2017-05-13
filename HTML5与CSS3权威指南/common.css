@@ -15,12 +15,12 @@ body{
 	font-family: "Hiragino Sans GB","microsoft yahei","WenQuanYi Micro Hei",sans-serif!important;
 }
 a{
-	border: 0;
+	border: none;
 	outline: none;
 	text-decoration: none;
 }
 img{
-	border: 0;
+	border: none;
 	display: block;
 	width: 100%;
 }
