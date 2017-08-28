@@ -25,16 +25,15 @@
 		var isDrawing = false;
 		var state = ctx.getImageData(0, 0, canvas.width, canvas.height);
 		history.pushState(state, null);
-		canvas.addEventListener("pointerdown", function(e){
-			// e.preventMainpulation()                                                                               
-		}, false);
+		
 		canvas.addEventListener('mousedown', startDrawing, false);
-		canvas.addEventListener('mousemove', draw, false);
 		canvas.addEventListener('mouseup', stopDrawing, false);
 		window.addEventListener('popstate', loadState, false);
 
 		function startDrawing(){
 			isDrawing = true;
+			console.log('start');
+			canvas.addEventListener('mousemove', draw, false);
 		}
 		function draw(event){
 			if(isDrawing){
@@ -44,17 +43,21 @@
 				var y = sy * event.clientY - image.naturalHeight / 2;
 				ctx.drawImage(image, x, y);
 			}
+			console.log('draw');
 		}
 		function stopDrawing(){
 			isDrawing = false;
 			var state = ctx.getImageData(0, 0, canvas.width, canvas.height);
 			history.pushState(state, null);
+			console.log('stop');
+			canvas.removeEventListener("mousemove", draw);
 		}
 		function loadState(e){
 			ctx.clearRect(0, 0, canvas.width, canvas.height);
 			if(e.state){
 				ctx.putImageData(e.state, 0, 0);
 			}
+			console.log('loadstate');
 		}
 	</script>
 </body>
