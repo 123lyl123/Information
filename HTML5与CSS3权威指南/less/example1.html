@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<title>less编译使用的库文件使用手段</title>
+	<style type="text/less">
+		
+		/*  LESS **/
+		.rounded-corners (@radius: 5px) {
+		  border-radius: @radius;
+		  -webkit-border-radius: @radius;
+		  -moz-border-radius: @radius;
+		}
+		#header {
+		  .rounded-corners;
+		}
+		#footer {
+		  .rounded-corners(12px);
+		}
+
+	</style>
+	
+	 <!--[if lt IE 9]>
+      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+
+	<header id="header">
+		标题
+	</header>
+	<footer id="footer">
+		收尾
+	</footer>
+	
+	<script src="//cdn.bootcss.com/less.js/1.3.1/less.min.js"></script>
+
+</body>
+</html>

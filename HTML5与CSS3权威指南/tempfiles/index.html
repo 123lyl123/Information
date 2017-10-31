@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+
+	<div class="checkboxMain">
+	    <div class="checkbox" name="tradeflag0" id="Div1" onclick="selectOne(1)">
+	        <input id="Checkbox1" type="checkbox" name="InputCheck"  value="110000"> 
+	        <ins id="checIn1" name="checIn"></ins>
+	 
+	    </div>
+	北京</div>
+	<div class="checkboxMain">
+	    <div class="checkbox" name="tradeflag0" id="Div2" onclick="selectOne(2)">
+	        <input id="Checkbox2" type="checkbox" name="InputCheck"  value="120000"> <ins id="checIn2" name="checIn"></ins>
+	 
+	    </div>天津</div>
+	 <td style="padding-left:15px;">
+          <input id="txtProvinces" type="text" class="default-input sy" style="height:20px;width:204px;" onfocus="focusdiv(0)" onblur="focusdiv(1)" runat="server"/>
+            
+            <div id="diqudiv" class="wd" style="display:none;">
+                
+                <span class="sel_express9" title="全选">
+                <div class="checkbox" name="tradeflag0" id="tradeflag0" onclick="selectAll()">
+                                        <input id="tradeflag0_inp" type="checkbox" runat="server" style="display: none" />
+                                        <ins id="checInA"></ins>
+                                    </div>全选
+                                    </span>
+
+                                    <span class="sel_express9">
+                                    <div class="checkboxMain">
+                                    <div class="checkbox" name="tradeflag0" id="Div1"  onclick="selectOne(1)">
+                                        <input id="Checkbox1" type="checkbox" name="InputCheck" style="display: none" value="110000" />
+                                        <ins id="checIn1" name="checIn"></ins>
+                                    </div>北京
+                                    </div>
+                                    <div class="checkboxMain">
+                                    <div class="checkbox" name="tradeflag0" id="Div2" onclick="selectOne(2)">
+                                        <input id="Checkbox2" type="checkbox" name="InputCheck" style="display: none" value="120000" />
+                                        <ins id="checIn2" name="checIn"></ins>
+                                    </div>天津
+                                    </div>
+                                    <div class="checkboxMain">
+                                    <div class="checkbox" name="tradeflag0" id="Div3" onclick="selectOne(3)">
+                                        <input id="Checkbox3" type="checkbox" name="InputCheck" style="display: none" value="130000" />
+                                        <ins id="checIn3" name="checIn"></ins>
+                                    </div>河北省
+                                    </div>
+                                    <div class="checkboxMain">
+                                    <div class="checkbox" name="tradeflag0" id="Div4" onclick="selectOne(4)">
+                                        <input id="Checkbox4" type="checkbox" name="InputCheck" style="display: none" value="140000" />
+                                        <ins  id="checIn4" name="checIn"></ins>
+                                    </div>山西省
+                                    </div>
+
+
+	<script type="text/javascript">
+		function selectOne(chk) {
+		    if (document.getElementById("checIn" + chk).className == "checked") {
+		        document.getElementById("tradeflag0_inp").checked = false;
+		        document.getElementById("checInA").className = "";
+		        RemoveToSelected2($("#Checkbox" + chk).val());
+		    }
+		    else {
+		        var checkNum = 0;
+		        var inc = document.getElementsByName("checIn");
+		        for (var i = 0; i < inc.length; i++) {
+		            if (inc[i].className == "checked") {
+		                checkNum++;
+		            }
+		        }
+		            
+		        if (checkNum>= 34) {
+		            document.getElementById("tradeflag0_inp").checked = true;
+		            document.getElementById("checInA").className = "checked";
+		        }
+		        else {
+		            document.getElementById("tradeflag0_inp").checked = false;
+		            document.getElementById("checInA").className = "";
+		        }
+		       }
+		}
+
+	</script>
+	<script type="text/javascript" src="../jquery-1.11.0.js"></script>
+</body>
+</html>

@@ -12,17 +12,32 @@
     <meta name="wap-font-scale" content="no">
 	<link rel="stylesheet" type="text/css" href="../common.css" />	
 	<style type="text/css">
-		li:after{
-			content:"(仅用于商业用途)";
+		li:after, li after{
+			content:attr(data-content);
 			color: red;
-			font-size: 12px;
+			font-size: 22px;
 		}
 	</style>
 </head>
 <body>
 	<ul>
-		<li><a href="movie1.mp4">狄仁杰</a></li>
+		<li data-content="123" id="first"><a href="movie1.mp4">狄仁杰</a></li>
 		<li><a href="movie2.mp4">精武风云</a></li>
 	</ul>
+	<script type="text/javascript">
+		function insertAfter(dom){
+			if (document.querySelector || !dom && dom.nodeType !== 1) return; 
+			var content = dom.getAttribute("data-content") || ''; 
+			var before = document.createElement("before") 
+			, after = document.createElement("after"); 
+			// 内部content 
+			before.innerHTML = content; 
+			after.innerHTML = content; 
+			// 前后分别插入节点 
+			dom.insertBefore(before, dom.firstChild); 
+			dom.appendChild(after); 
+		}
+		insertAfter(document.getElementById("first"))
+	</script>
 </body>
 </html>
