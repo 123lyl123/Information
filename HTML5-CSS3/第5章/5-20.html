@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>使用setTransform方法绘制变形图形实例</title>
+	<meta name="keywords" content="" />
+	<meta name='description' content='' />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta content="telephone=no" name="format-detection" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta name="wap-font-scale" content="no">
+</head>
+<body onload="draw('canvas');">
+	<h1>canvas元素实例</h1>
+	<canvas id="canvas" width="400" height="300"></canvas>
+	<script type="text/javascript">
+		function draw(id){
+			var canvas = document.getElementById(id);
+			if(canvas == null){
+				return false;
+			}
+			var ctx = canvas.getContext('2d');
+			//红色长方形
+			ctx.strokeStyle = "red";
+			ctx.strokeRect(30, 10, 60, 20);
+			//绘制顺时针旋转45°后的变换矩阵
+			var rad = 45 * Math.PI / 180;
+			ctx.setTransform(Math.cos(rad), Math.sin(rad), -Math.sin(rad), Math.cos(rad), 0, 0);
+			//绘制图形
+			ctx.strokeStyle = "blue";
+			ctx.strokeRect(30, 10, 60, 20);
+			//绘制方法2.5被后的绿色长方形
+			// 定义放大2.5倍的变换矩阵
+			ctx.setTransform(2.5, 0, 0, 2.5, 0, 0);
+			//绘制图形
+			ctx.strokeStyle = "green";
+			ctx.strokeRect(30,10, 60, 20);
+			//将坐标原点向右移动40像素，向下移动80像素后绘制灰色长方形
+			//定义将坐标原点向右移动40像素，向下移动80像素的矩阵 
+			ctx.setTransform(1, 0, 0, 1, 40, 80);
+			//绘制图形
+			ctx.strokeStyle = "gray";
+			ctx.strokeRect(30, 10, 60, 20);
+		}
+	</script>
+</body>
+</html>

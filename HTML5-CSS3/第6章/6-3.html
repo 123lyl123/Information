@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>读取网络状态</title>
+	<meta name="keywords" content="" />
+	<meta name='description' content='' />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta content="telephone=no" name="format-detection" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta name="wap-font-scale" content="no">
+</head>
+<body>
+	<div id="networkState"></div>
+	<video id="video" src="test.mov" controls="">
+		<script type="text/javascript">
+			var video = document.getElementById("video");
+			video.addEventListener("progress", function(e){
+				var networkStateDisplay = document.getElementById('networkState');
+				console.log(video.paused);
+				//根据networkState属性的值执行处理
+				if(video.networkState == 2){
+					//计算已加载的字节数与总字节数
+					networkStateDisplay.innerHTML = "加载中...[" + e + " byte]";
+					
+				}
+				else if(video.networkState == 3){
+					networkStateDisplay.innerHTML = "加载失败";
+				}
+			}, false);
+		</script>
+	</video>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>读取错误状态</title>
+	<meta name="keywords" content="" />
+	<meta name='description' content='' />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta content="telephone=no" name="format-detection" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta name="wap-font-scale" content="no">
+</head>
+<body>
+	<video id="videoElement" src="test.mov" autoplay="">
+		<script type="text/javascript">
+			var video = document.getElementById("videoElement");
+			video.addEventListener("error", function(){
+				var error = video.error;
+				switch(error.code){
+					case 1:
+						alert('视频的下载过程被终止');
+						break;
+					case 2:
+						alert('网络发生鼓掌，视频的下载过程被中止');
+						break;
+					case 3:
+						alert('解码失败');
+						break;
+					case 4:
+						alert('媒体资源不可用或者媒体格式不被支持');
+						break;
+				}
+			}, false);
+		</script>
+	</video>
+</body>
+</html>

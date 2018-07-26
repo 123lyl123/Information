@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>E:read-only伪泪选择器与E:read-write伪类选择器结合使用</title>
+	<meta name="keywords" content="" />
+	<meta name='description' content='' />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta content="telephone=no" name="format-detection" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta name="wap-font-scale" content="no">
+	<link rel="stylesheet" type="text/css" href="../common.css" />	
+	<style type="text/css">
+		input[type="text"]:read-only{
+			background: gray;
+		}
+		input[type="text"]:read-write{
+			background: greenyellow;
+		}
+		input[type="text"]:-moz-read-only{
+			background: gray;
+		}
+		input[type="text"]:-moz-read-write{
+			background: greenyellow;
+		}
+	</style>
+</head>
+<body>
+	<form>
+		<p>冥钱：<input type="text" name="name" /></p>
+		<p>地址：<input type="text" name="address" value="江苏省常州市" readonly="readonly" /></p>
+	</form>
+	
+</body>
+</html>

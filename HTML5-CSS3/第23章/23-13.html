@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>指定4条边中图像为拉伸显示</title>
+    <link rel="stylesheet" type="text/css" href="../common.css" />
+    <style type="text/css">
+    div {
+        width: 300px;
+        height: 200px;
+        border: 19px solid #fff;
+        border-image: url(../img/01.png) 19/57px stretch stretch;
+    }
+    
+    .border_image {
+        width: 400px;
+        height: 100px;
+        border: double orange 1em;
+    }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <a href="http://www.zhangxinxu.com/wordpress/2010/01/css3-border-image/" target="_blank">border-image属性的相关应用</a>
+    <p id="borderImage" class="border_image"></p>
+    <script type="text/javascript" src="http://www.zhangxinxu.com/study/js/jquery-1.2.6.pack.js"></script>
+    <script type="text/javascript" src="http://www.zhangxinxu.com/study/js/jquery.borderImage.js"></script>
+    <<!--jquery插件-->
+        <script type="text/javascript">
+        $(function() {
+            $("#borderImage").borderImage('url("../img/01.png") 27');
+        });
+        </script>
+</body>
+
+</html>

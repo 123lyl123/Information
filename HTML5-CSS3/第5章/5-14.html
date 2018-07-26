@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>使用Path2D对象绘制SVG路径</title>
+	<meta name="keywords" content="" />
+	<meta name='description' content='' />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta content="telephone=no" name="format-detection" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta name="wap-font-scale" content="no">
+</head>
+<body onload="draw('canvas');">
+	<h1>canvas元素实例</h1>
+	<canvas id="canvas" width="400" height="300"></canvas>
+	<script type="text/javascript">
+		function draw(id){
+			var canvas = document.getElementById(id);
+			if(canvas == null){
+				return false;
+			}
+			var ctx = canvas.getContext('2d');
+			var path1 = new Path2D("M10 10 h 80 v 80 h -80 Z ");
+			ctx.fillStyle = "blue";
+			ctx.fill(path1);
+		}
+	</script>
+</body>
+</html>

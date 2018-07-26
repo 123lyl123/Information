@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>循环显示所有参数的组合效果</title>
+	<meta name="keywords" content="" />
+	<meta name='description' content='' />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta content="telephone=no" name="format-detection" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta name="wap-font-scale" content="no">
+</head>
+<body onload="draw('canvas');">
+	<h1>canvas元素实例</h1>
+	<canvas id="canvas" width="400" height="300"></canvas>
+	<script type="text/javascript">
+		var globalId;
+		var i = 0;
+		function draw(id){
+			globalId = id;
+			setInterval(Composite, 1000);
+		}
+		function Composite(){
+			var canvas = document.getElementById(globalId);
+			if(canvas == null){
+				return false;
+			}
+			var ctx = canvas.getContext('2d');
+			var oprtns = new Array("source-atop","source-in","source-out","source-over","destination-atop","destination-in","destination-out","destination-over","lighter","copy","xor");
+			if(i > 10) i = 0;
+			ctx.clearRect(0, 0, canvas.width, canvas.height);
+			ctx.save();
+			//绘制原有图形
+			ctx.fillStyle = "blue";
+			ctx.fillRect(10, 10, 60, 60);
+			//设置组合方式
+			ctx.globalCompositeOperation = oprtns[i];
+			//设置新图形
+			ctx.beginPath();
+			ctx.fillStyle = "red";
+			ctx.arc(60, 60, 30, 0, Math.PI * 2, false);
+			ctx.fill();
+			ctx.restore();
+			i += 1;
+		}
+	</script>
+</body>
+</html>

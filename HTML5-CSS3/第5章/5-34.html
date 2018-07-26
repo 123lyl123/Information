@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>使用Canvas API绘制简单动画</title>
+	<meta name="keywords" content="" />
+	<meta name='description' content='' />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta content="telephone=no" name="format-detection" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta name="wap-font-scale" content="no">
+</head>
+<body onload="draw('canvas');">
+	<h1>canvas元素实例</h1>
+	<canvas id="canvas" width="400" height="300"></canvas>
+	<script type="text/javascript">
+		var ctx;
+		var width,height;
+		var i,deg;
+		function draw(id){
+			var canvas = document.getElementById(id);
+			if(canvas == null){
+				return false;
+			}
+			ctx = canvas.getContext('2d');
+			width = canvas.width;
+			height = canvas.height;
+			i = 0;
+			deg = 1;
+			setInterval(rotate, 700);
+		}
+		function rotate(){
+			ctx.clearRect(0, 0, width, height);
+			ctx.fillStyle = "red";
+			ctx.scale(deg, deg);
+			ctx.fillRect(i, 0, 20, 20);
+			i += 20;
+			deg = deg * 1;
+			if(i >= width){
+				i = 0;
+			}
+			if(deg == 4){
+				deg = 1;
+			}
+			
+		}
+	</script>
+</body>
+</html>

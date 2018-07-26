@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>btoa实例</title>
+</head>
+<body>
+	<p>
+		<label>请选择一个文件</label>
+		<input type="file" id="file" onchange="file_onchange()">
+		<input type="button" id="btnReadPicture" value="读取图像 " onclick="readPicture()" disabled="disabled" />
+	</p>
+	<div id="result"></div>
+	<script type="text/javascript">
+		var result = document.getElementById('result');
+		var file = document.getElementById('file');
+		if(typeof FileReader == 'undefined'){
+			result.innerHTML = '';
+			file.setAttribute('disabled', 'disabled');
+		}
+		function file_onchange(){
+			document.getElementById('btnReadPicture').disabled = false;
+		}
+		function readPicture(){
+			var file = document.getElementById('file').files[0];
+			if(!/image\/\w+/.test(file.type)){
+				alert("确保问价类型");
+				return false;
+			}
+			var reader = new FileReader();
+			reader.readAsBinaryString(file);
+			reader.onload = function(f){
+				var result = document.getElementById('result');
+				var src = "data:" + file.type + ";base64," + window.btoa(this.result);
+				result.innerHTML = '<img src="'+ src + '" alt="" />';
+			}
+		}
+	</script>
+</body>
+</html>
