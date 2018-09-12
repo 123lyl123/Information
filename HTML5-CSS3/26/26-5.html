@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>弹性盒布局内容自适应</title>
+<meta name="description" content="flex">
+<meta name="keywords" content="flex">
+<link href="../pc-common.css" rel="stylesheet" />
+<style type="text/css">
+	#container{
+		display: flex;
+		border: solid 5px blue;
+		flex-direction: column;
+		width: 500px;
+		height: 300px;
+	}
+	#text-a{
+		background-color: orange;
+	}
+	#text-b{
+		background-color: yellow;
+		flex: 1;
+	}
+	#text-c{
+		background-color: limegreen;
+	}
+	#text-a, #text-b, #text-c{
+		box-sizing: border-box;
+		font-size: 16px;
+		font-weight: bold;
+		height: 200px
+	}
+</style>
+</head>
+<body>
+    <div id="container">
+    	<div id="text-a">的数据开始跌A</div>
+    	<div id="text-b">的数据开始跌B</div>
+    	<div id="text-c">的数据开始跌C</div>
+    </div>
+</body>
+</html>

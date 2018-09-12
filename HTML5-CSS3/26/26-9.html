@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>calc方法</title>
+	<style type="text/css">
+		#container{
+			width: 500px;
+			background-color: pink;
+		}
+		#foo{
+			width: calc(50% - 100px);
+			background-color: green;
+			resize: vertical;
+			overflow: auto;
+			height: 150px;
+		}
+	</style>
+</head>	
+<body>
+	<div id="container">
+		<div id="foo">实例di收到货福建省的积分史蒂芬霍金开始跌副科级上可见东方航空灰色空间东方航空家会计师的反馈哈萨克接电话副科级灰色空间大富科技上可见东方航空上可见东方航空集市看到分行可上课代付款v</div>
+	</div><br>
+	<input type="text" class="a" placeholder="请输入容器的宽度" />
+	<input type="button" value="修改div宽度" />
+
+	<script type="text/javascript" src="../jquery-1.11.0.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$("input[type='button']").on("click",function(){
+				$("#container").animate({width: $('.a').val()}, 800, function(){
+					/*相关代码实现详细步骤*/
+				});
+			})
+		})
+	</script>
+	
+</body>
+</html>
